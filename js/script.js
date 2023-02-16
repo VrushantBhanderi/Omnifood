@@ -48,7 +48,7 @@ allLinks.forEach(function (link) {
   link.addEventListener("click", function (e) {
     e.preventDefault();
     const href = link.getAttribute("href");
-
+    body.classList.remove("scrolloff");
     // Scroll back to top
     if (href === "#")
       window.scrollTo({
