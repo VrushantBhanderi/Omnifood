@@ -35,33 +35,33 @@ btnNavEL.addEventListener("click", function () {
 ///////////// SAFARI SCROLLING  ///////////
 ///////////////////////////////////////////
 
-const allLinks = document.querySelectorAll("a:link");
-console.log(allLinks);
+// const allLinks = document.querySelectorAll("a:link");
+// console.log(allLinks);
 
-allLinks.forEach(function (link) {
-  link.addEventListener("click", function (e) {
-    console.log(e);
-    e.preventDefault();
-    const herf = link.getAttribute("href");
-    console.log(herf);
+// allLinks.forEach(function (link) {
+//   link.addEventListener("click", function (e) {
+//     console.log(e);
+//     e.preventDefault();
+//     const herf = link.getAttribute("href");
+//     console.log(herf);
 
-    // Scroll Back to top
-    if (herf == "#")
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    // Scroll to other links
-    if (href !== "#" && href.startsWith("#")) {
-      const sectionEl = document.querySelector(href);
-      sectionEl.scrollIntoView({ behavior: "smooth" });
-    }
+//     // Scroll Back to top
+//     if (herf == "#")
+//       window.scrollTo({
+//         top: 0,
+//         behavior: "smooth",
+//       });
+//     // Scroll to other links
+//     if (href !== "#" && href.startsWith("#")) {
+//       const sectionEl = document.querySelector(href);
+//       sectionEl.scrollIntoView({ behavior: "smooth" });
+//     }
 
-    // Close mobile naviagtion
-    if (link.classList.contains("main-nav-link"))
-      headerEl.classList.toggle("nav-open");
-  });
-});
+//     // Close mobile naviagtion
+//     if (link.classList.contains("main-nav-link"))
+//       headerEl.classList.toggle("nav-open");
+//   });
+// });
 
 ///////////////////////////////////////////
 ///////////// STICKEY NAVIGATION  /////////
@@ -87,4 +87,3 @@ const observer = new IntersectionObserver(
 );
 
 observer.observe(sectionHeroEl);
-
