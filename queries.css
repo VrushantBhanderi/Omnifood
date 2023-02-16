@@ -152,6 +152,7 @@
     pointer-events: none;
     /* 3- hide it from the screen reader
      */
+    visibility: hidden;
   }
   .nav-open .main-nav {
     opacity: 1;
@@ -161,6 +162,7 @@
   }
 
   .nav-open .icon-mobile-nav[name="close-outline"] {
+    
     display: block;
   }
 

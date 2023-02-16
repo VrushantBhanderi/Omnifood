@@ -26,64 +26,71 @@ yearEL.textContent = currentyear;
 
 const btnNavEL = document.querySelector(".btn-mobile-nav");
 const headerlEL = document.querySelector(".header");
+const body = document.querySelector(".html");
 
 btnNavEL.addEventListener("click", function () {
   headerlEL.classList.toggle("nav-open");
+
+  if (headerlEL.classList.contains("nav-open")) {
+    root.classList.add("scrolloff");
+  } else {
+    root.classList.remove("scrolloff");
+  }
 });
 
 ///////////////////////////////////////////
 ///////////// SAFARI SCROLLING  ///////////
 ///////////////////////////////////////////
 
-// const allLinks = document.querySelectorAll("a:link");
-// console.log(allLinks);
+const allLinks = document.querySelectorAll("a:link");
 
-// allLinks.forEach(function (link) {
-//   link.addEventListener("click", function (e) {
-//     console.log(e);
-//     e.preventDefault();
-//     const herf = link.getAttribute("href");
-//     console.log(herf);
+allLinks.forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    const href = link.getAttribute("href");
 
-//     // Scroll Back to top
-//     if (herf == "#")
-//       window.scrollTo({
-//         top: 0,
-//         behavior: "smooth",
-//       });
-//     // Scroll to other links
-//     if (href !== "#" && href.startsWith("#")) {
-//       const sectionEl = document.querySelector(href);
-//       sectionEl.scrollIntoView({ behavior: "smooth" });
-//     }
+    // Scroll back to top
+    if (href === "#")
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
 
-//     // Close mobile naviagtion
-//     if (link.classList.contains("main-nav-link"))
-//       headerEl.classList.toggle("nav-open");
-//   });
-// });
+    // Scroll to other links
+    if (href !== "#" && href.startsWith("#")) {
+      const sectionEl = document.querySelector(href);
+      sectionEl.scrollIntoView({ behavior: "smooth" });
+    }
 
+    // Close mobile naviagtion
+    if (link.classList.contains("main-nav-link"))
+      headerlEL.classList.toggle("nav-open");
+  });
+});
 ///////////////////////////////////////////
 ///////////// STICKEY NAVIGATION  /////////
 ///////////////////////////////////////////
 
 const sectionHeroEl = document.querySelector(".section-hero");
-const observer = new IntersectionObserver(
+
+const obs = new IntersectionObserver(
   function (entries) {
     const ent = entries[0];
-    if (ent.isIntersecting == false) {
+    console.log(ent);
+
+    if (ent.isIntersecting === false) {
       document.body.classList.add("sticky");
     }
-    if (ent.isIntersecting == true) {
+
+    if (ent.isIntersecting === true) {
       document.body.classList.remove("sticky");
     }
   },
   {
-    // in the viewport
+    // In the viewport
     root: null,
     threshold: 0,
     rootMargin: "-80px",
   }
 );
-
-observer.observe(sectionHeroEl);
+obs.observe(sectionHeroEl);

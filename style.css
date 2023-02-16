@@ -73,7 +73,7 @@ html {
   /* Percentage of user's browser font-size setting */
 
   font-size: 62.5%;
-
+  
   overflow-x: hidden;
   /* Somethime Does not work on safari */
   scroll-behavior: smooth;
@@ -87,6 +87,9 @@ body {
   overflow-x: hidden;
 }
 
+.scrolloff {
+  overflow-y: hidden;
+}
 /* ************************************************* */
 /* GENERAL COMPONENTS */
 /* ************************************************* */
