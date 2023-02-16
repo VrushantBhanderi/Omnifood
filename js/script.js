@@ -26,15 +26,15 @@ yearEL.textContent = currentyear;
 
 const btnNavEL = document.querySelector(".btn-mobile-nav");
 const headerlEL = document.querySelector(".header");
-const body = document.querySelector(".html");
+const body = document.querySelector("html");
 
 btnNavEL.addEventListener("click", function () {
   headerlEL.classList.toggle("nav-open");
 
   if (headerlEL.classList.contains("nav-open")) {
-    root.classList.add("scrolloff");
+    body.classList.add("scrolloff");
   } else {
-    root.classList.remove("scrolloff");
+    body.classList.remove("scrolloff");
   }
 });
 
